@@ -1,24 +1,5 @@
-# README
+# Project: Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+link to lesson: https://www.theodinproject.com/lessons/ruby-on-rails-private-eventsexi
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is meant to deep dive into ActiveRecord association. Building a cite similar to Eventbrite.
