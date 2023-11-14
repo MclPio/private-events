@@ -1,1 +1,21 @@
-This page will have a form to make new events when user is signed in.
+<h1>New Event</h1>
+<%= render "events/errors" %>
+
+<%= form_with model: @event do |form| %>
+  <%= form.label :title%>
+  <%= form.text_field :title %>
+
+  <%= form.label :location%>
+  <%= form.text_field :location %>
+
+  <%= form.label :description%>
+  <%= form.text_area :description %>
+
+  <%= form.label :start_date%>
+  <%= form.datetime_field :date_start %>
+
+  <%= form.label :end_date%>
+  <%= form.datetime_field :date_end %>
+
+  <%= form.submit %>
+<% end %>

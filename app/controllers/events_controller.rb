@@ -6,13 +6,13 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
   end
-  
+
   def new
     @event = Event.new
   end
 
   def create
-    @event = Event.build_event(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event
