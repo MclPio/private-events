@@ -1,0 +1,6 @@
+<%= @user.username %>
+<div class="container">
+  <% @user.events.each do |event| %>
+    <p><%= event.title %></p>
+  <% end %>
+</div>
