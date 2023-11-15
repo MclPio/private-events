@@ -1,8 +1,8 @@
 class Event < ApplicationRecord
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
-  has_many :attendancy
-  has_many :attendees, through: :attendancy, source: :users
+  has_many :attendances
+  has_many :attendees, through: :attendances, source: :user
 
   validates :title, presence: true
   validates :location, presence: true
