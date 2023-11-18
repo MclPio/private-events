@@ -20,6 +20,13 @@ class AttendancesController < ApplicationController
     end
   end
 
+  def destroy
+    @attendance = current_user.attendances(event_id: event_params)
+    @attendance.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
 
   def event_params

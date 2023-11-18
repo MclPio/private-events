@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :attendances, only: [:new, :create, :index, :show]
+  resources :attendances, only: [:new, :create, :index, :show, :destroy]
 end
