@@ -6,16 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
-
-event = User.find_by(username: 'joe').
-events.build(date_start: '2024-11-11 16', date_end: '2024-11-11 19', 
-location: 'Leafs Coffee', description: 'bla bla bla bla bla words words words.', 
-title: 'Tech Meet')
-# event.save!
-
 def user_gen
-  for i in 1..100 do
+  for i in 1..30 do
     user_name = "user#{i}"
     User.create(username: user_name, 
                 email: "#{user_name}@world.co",
@@ -25,15 +17,16 @@ def user_gen
 end
 
 def event_gen()
-  for i in 1.20 do
+  for i in 1..10 do
     event_name = "event #{i}"
     date_start = "2024-01-#{i} 16"
     date_end = "2024-01-#{i} 20"
+    user_dynamic = User.find(User.first.id + i)
     Event.create(date_start: date_start,
                  date_end: date_end,
                  location: 'Leafs Coffee',
                  description: 'bla bla bla bla bla words words words.',
-                 title: event_name).creator(User.find(i))
+                 title: event_name).creator = user_dynamic
   end
 end
 
