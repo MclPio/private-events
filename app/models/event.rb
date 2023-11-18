@@ -9,4 +9,12 @@ class Event < ApplicationRecord
   validates :description, presence: true
   validates :date_start, presence: true
   validates :date_end, presence: true, comparison: { greater_than: :date_start}
+
+  def self.past
+    self.where(date_start: ..(Time.now))
+  end
+
+  def self.future
+    self.where(date_start: (Time.now)..)
+  end
 end

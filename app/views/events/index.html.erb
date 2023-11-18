@@ -1,4 +1,9 @@
-<h1>Event List</h1>
-<% @events.each do |event| %>
+<h2>Past Events:</h2>
+<% @events.past.each do |event| %>
+  <%= link_to event.title, event %>
+<% end %>
+
+<h2>Future Events:</h2>
+<% @events.future.each do |event| %>
   <%= link_to event.title, event %>
 <% end %>
