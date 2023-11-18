@@ -1,4 +1,15 @@
-<%= @user.username %>
+<h6>username: <%= @user.username %></h6>
+
+<h3>Created Events:</h3>
 <% @user.events.each do |event| %>
-  <p><%= event.title %></p>
+  <ul>
+    <li><%= link_to event.title, event %></li>
+  </ul>
+<% end %>
+
+<h3>Event Sign Ups:</h3>
+<% @user.attended_events.each do |event| %>
+  <ul>
+    <li><%= link_to event.title, event %></li>
+  </ul>
 <% end %>
