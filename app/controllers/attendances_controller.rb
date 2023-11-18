@@ -1,4 +1,6 @@
 class AttendancesController < ApplicationController
+#implement before action to make sure a user is signed in before utilizing any of these methods
+  before_action :authenticate_user!
 
   def new
     @attendance = Attendance.new
