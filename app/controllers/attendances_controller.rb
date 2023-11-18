@@ -4,6 +4,10 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new
   end
 
+  def index
+    @attendances = Attendance.all
+  end
+
   def create
     @attendance = current_user.attendances.build(event_id: event_params)
 

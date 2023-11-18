@@ -6,5 +6,7 @@
 
 <%= button_to 'Attend', attendances_path(event_id: @event.id) %>
 
-<%# new_attendance_path %>
-<%# ActionController::RoutingError (No route matches [POST] "/attendances/new"): %>
+<h2>Attendees:</h2>
+<% @event.attendees.each do |attendee| %>
+  <%= attendee.username %>
+<% end %>
