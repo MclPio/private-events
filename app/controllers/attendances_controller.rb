@@ -5,10 +5,10 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    @attendance = current_user.attendances.build(attendance_params)
+    @attendance = current_user.attendances.build(event_id: event_params)
 
     if @attendance.save
-      redirect_to @attendance
+      redirect_to event_url(@attendance.event)
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,7 +16,7 @@ class AttendancesController < ApplicationController
 
   private
 
-  def attendance_params
-    params.require(:attendance).permit(:user_id, :event_id)
+  def event_params
+    params.require(:event_id)
   end
 end
