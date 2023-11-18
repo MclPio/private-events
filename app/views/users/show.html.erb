@@ -3,7 +3,7 @@
 <h3>Created Events:</h3>
 <% @user.events.each do |event| %>
   <ul>
-    <li><%= link_to event.title, event %></li>
+    <li><%= link_to event.title, event %>, <%= link_to 'Edit', edit_event_path %>, <%= link_to 'Delete' %></li> 
   </ul>
 <% end %>
 
