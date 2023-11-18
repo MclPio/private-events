@@ -4,8 +4,12 @@
 <%= @event.date_start %>
 <%= @event.date_end %>
 
-<%= button_to 'Attend', attendances_path(event_id: @event.id) %>
-
+<%# todo: this is definatly broken... %>
+<% if current_user.attended_events.include?(@event) %>
+  <%= button_to 'Attend', attendances_path(event_id: @event.id) %>
+<% elsif current_user.attended_events.include?(@event) %>
+  <%= button_to 'Cancel' %>
+<% end %>
 <h2>Attendees:</h2>
 <% @event.attendees.each do |attendee| %>
   <%= attendee.username %>
