@@ -42,6 +42,17 @@ def event_gen_2024()
   end
 end
 
+def attendance_gen
+  i = 0
+  User.all.each do |user|
+    first_event = Event.first.id
+    event_counter = first_event + i
+    user.attendances.create(event_id: event_counter)
+    i += 1
+  end
+end
+
 user_gen
 event_gen_2023
 event_gen_2024
+attendance_gen
