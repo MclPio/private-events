@@ -44,7 +44,7 @@ end
 
 def attendance_gen
   i = 0
-  User.all.each do |user|
+  User.all.reverse.each do |user|
     first_event = Event.first.id
     event_counter = first_event + i
     user.attendances.create(event_id: event_counter)

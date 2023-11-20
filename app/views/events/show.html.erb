@@ -3,6 +3,7 @@
 <%= @event.description %>
 <%= @event.date_start %>
 <%= @event.date_end %>
+<%= @event.creator.username %>
 
 <%# todo: this is definatly broken... %>
 <%= button_to 'Attend', attendances_path(event_id: @event.id) %>
