@@ -16,19 +16,32 @@ def user_gen
   end
 end
 
-def event_gen()
+def event_gen_2023()
   for i in 1..10 do
-    event_name = "event #{i}"
-    date_start = "2024-01-#{i} 16"
-    date_end = "2024-01-#{i} 20"
-    user_dynamic = User.find(User.first.id + i)
-    Event.create(date_start: date_start,
-                 date_end: date_end,
-                 location: 'Leafs Coffee',
-                 description: 'bla bla bla bla bla words words words.',
-                 title: event_name).creator = user_dynamic
+    date_start = Time.new(2023, 5, 20, 13, 0, 0)
+    date_end = Time.new(2023, 5, 20, 14, 0, 0)
+
+    User.all[i].events.create(date_start: date_start,
+                              date_end: date_end,
+                              location: "Toronto, ON",
+                              description: "This is description number #{i}",
+                              title: "Title number #{i}")
   end
 end
 
-user_gen()
-event_gen()
+def event_gen_2024()
+  for i in 1..10 do
+    date_start = Time.new(2024, 5, 20, 13, 0, 0)
+    date_end = Time.new(2024, 5, 20, 14, 0, 0)
+
+    User.all[i].events.create(date_start: date_start,
+                              date_end: date_end,
+                              location: "Toronto, ON",
+                              description: "This is description number #{i}",
+                              title: "Title number #{i}")
+  end
+end
+
+user_gen
+event_gen_2023
+event_gen_2024
