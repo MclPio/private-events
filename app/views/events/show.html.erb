@@ -13,8 +13,12 @@
   <%= attendee.username %>
 <% end %>
 
-<% if current_user.attended_events.include?(@event) %>
-  <%= button_to 'Cancel', attendance_path, method: 'delete', model: @attendance %>
+<% if user_signed_in? %>
+  <% if current_user.attended_events.include?(@event) %>
+    <%= button_to 'Cancel', attendance_path, method: 'delete', model: @attendance %>
+  <% else %>
+    <%= button_to 'Attend', attendances_path(id: @event.id) %>
+  <% end %>
 <% else %>
   <%= button_to 'Attend', attendances_path(id: @event.id) %>
 <% end %>

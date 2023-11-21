@@ -4,7 +4,7 @@
   <ul>
     <li>
       <%= link_to event.title, event %>
-      <%= link_to 'Edit', edit_event_path %>
+      <%= link_to 'Edit', edit_event_path(event) %>
       <%= link_to 'Delete', event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </li>
   </ul>
@@ -13,7 +13,10 @@
 <% @user.attended_events.each do |event| %>
   <% if event.date_start < Time.now %>
     <ul>
-      <li><%= link_to event.title, event %></li>
+      <li>
+        <%= link_to event.title, event %>
+        <%= button_to 'Cancel', attendance_path(event), method: 'delete', model: @attendance %>
+      </li>
     </ul>
   <% end %>
 <% end %>
@@ -22,10 +25,8 @@
   <% if event.date_start > Time.now %>
     <ul>
       <li>
-        <%= link_to event.title, event %> 
-        <%#% link_to 'Unattend', attendances_path(attendances), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        <%# DELETE /attendances/:id(.:format)  attendances#destroy %>
-        <%# todo: need to make correct path for destroy action for attendance%>
+        <%= link_to event.title, event %>
+        <%= button_to 'Cancel', attendance_path(event), method: 'delete', model: @attendance %>
       </li>
     </ul>
   <% end %>
