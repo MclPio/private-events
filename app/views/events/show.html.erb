@@ -1,14 +1,22 @@
-<%= @event.title %>
-<%= @event.location %>
-<%= @event.description %>
-<%= @event.date_start %>
-<%= @event.date_end %>
-<%= @event.creator.username %>
+<h3>Event Info</h3>
+<ul>
+  <li><%= @event.title %></li>
+  <li><%= @event.location %></li>
+  <li><%= @event.description %></li>
+  <li><%= @event.date_start %></li>
+  <li><%= @event.date_end %></li>
+  <li>created by: <%= @event.creator.username %></li>
+</ul>
 
-<%# todo: this is definatly broken... %>
-<%= button_to 'Attend', attendances_path(event_id: @event.id) %>
-<%= button_to 'Cancel' %>
 <h2>Attendees:</h2>
 <% @event.attendees.each do |attendee| %>
   <%= attendee.username %>
+<% end %>
+
+<%= button_to 'Attend', attendances_path(id: @event.id) %>
+<%= button_to 'Cancel', attendance_path, method: 'delete', model: @attendance %>
+<%# need to add logic to prevent these requests being sent by unauthorized users and events that are not being attended for the cancel button%>
+<%# NEED TO UPDATE THIS CODE AFTER FIXING PATHS %>
+<%# if user_signed_in? %>
+<% if true %>
 <% end %>

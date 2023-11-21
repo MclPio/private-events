@@ -23,7 +23,7 @@
     <ul>
       <li>
         <%= link_to event.title, event %> 
-        <%= link_to 'Unattend', attendances_path(attendances), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <%#% link_to 'Unattend', attendances_path(attendances), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <%# DELETE /attendances/:id(.:format)  attendances#destroy %>
         <%# todo: need to make correct path for destroy action for attendance%>
       </li>

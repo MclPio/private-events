@@ -21,15 +21,15 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
-    @attendance = current_user.attendances(event_id: event_params)
+    @attendance = current_user.attendances.find_by(event_id: event_params)
     @attendance.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to event_url(@attendance.event), status: :see_other
   end
 
   private
 
   def event_params
-    params.require(:event_id)
+    params.require(:id)
   end
 end
