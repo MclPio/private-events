@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :events, inverse_of: 'creator', dependent: :destroy
 
+  has_many :invitations, dependent: :destroy
+  has_many :invited_events, through: :invitations, source: :event
   has_many :attendances
   has_many :attended_events, through: :attendances, source: :event
 end

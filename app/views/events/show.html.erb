@@ -8,14 +8,18 @@
   <li>created by: <%= @event.creator.username %></li>
 </ul>
 
-<h2>Attendees:</h2>
-<% @event.attendees.each do |attendee| %>
-  <%= attendee.username %>
+<% if current_user == @event.creator %>
+<h3>Invite Users</h3>
+  <%= form_with model: Invitation do |form| %>
+    <%= form.search_field :search %>
+
+    <%= form.submit :search %>
+  <% end %>
 <% end %>
 
 <% if user_signed_in? %>
   <% if current_user.attended_events.include?(@event) %>
-    <%= button_to 'Cancel', attendance_path, method: 'delete', model: @attendance %>
+    <%= button_to 'Cancel Attendance', attendance_path, method: 'delete', model: @attendance %>
   <% else %>
     <%= button_to 'Attend', attendances_path(id: @event.id) %>
   <% end %>
@@ -23,8 +27,7 @@
   <%= button_to 'Attend', attendances_path(id: @event.id) %>
 <% end %>
 
-<%# need to add logic to prevent these requests being sent by unauthorized users and events that are not being attended for the cancel button%>
-<%# NEED TO UPDATE THIS CODE AFTER FIXING PATHS %>
-<%# if user_signed_in? %>
-<% if true %>
+<h2>Attendees:</h2>
+<% @event.attendees.each do |attendee| %>
+  <%= attendee.username %>
 <% end %>
