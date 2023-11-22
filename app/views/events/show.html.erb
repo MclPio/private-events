@@ -8,14 +8,7 @@
   <li>created by: <%= @event.creator.username %></li>
 </ul>
 
-<% if current_user == @event.creator %>
-<h3>Invite Users</h3>
-  <%= form_with model: Invitation do |form| %>
-    <%= form.search_field :search %>
-
-    <%= form.submit :search %>
-  <% end %>
-<% end %>
+<%= render "invitations/new", locals: { invitation: @invitation } %>
 
 <% if user_signed_in? %>
   <% if current_user.attended_events.include?(@event) %>

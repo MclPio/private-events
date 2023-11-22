@@ -1,0 +1,8 @@
+<% if current_user == @event.creator %>
+<h3>Invite Users</h3>
+  <%= form_with model: Invitation do |form| %>
+    <%= hidden_field(:event, :id) %>
+    <%= form.text_field(:username) %>
+    <%= form.submit :invite %>
+  <% end %>
+<% end %>
