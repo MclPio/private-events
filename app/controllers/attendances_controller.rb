@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-#implement before action to make sure a user is signed in before utilizing any of these methods
+  before_action :user_invited!, only: [:new, :create]
   before_action :authenticate_user!
 
   def new
@@ -33,5 +33,13 @@ class AttendancesController < ApplicationController
 
   def event_params
     params.require(:id)
+  end
+
+  def user_invited!
+    @event = Event.find(event_params)
+
+    unless current_user.invited_events.include?(@event)
+      redirect_to root_path, alert: 'You are not invited to this event'
+    end
   end
 end
