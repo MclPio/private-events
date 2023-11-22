@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   before_action :user_invited!, only: [:show]
 
   def index
-    @events = Event.all
+    if params[:q].present?
+      @events = Event.where("title ILIKE ?", "%#{params[:q]}%")
+    else
+      @events = Event.all
+    end
   end
 
   def show
@@ -51,7 +55,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :date_start, :date_end)
+    params.require(:event).permit(:title, :description, :location, :date_start, :date_end, :q)
   end
 
   def authorize_user!
