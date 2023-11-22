@@ -15,9 +15,7 @@
   <% if current_user.attended_events.include?(@event) %>
     <%= button_to 'Cancel Attendance', attendance_path, method: 'delete', model: @attendance %>
   <% else %>
-  <%# THIS BUTTON SHOULD BE REMOVED AFTER TESTING CONTROLLER %>
-  <%= button_to 'Attend', attendances_path(id: @event.id) %>
-    <% if current_user.invited_events.include?(@event)%>
+    <% if current_user.invited_events.include?(@event) || current_user == @event.creator%>
       <p>You are invited!</p>
       <%= button_to 'Attend', attendances_path(id: @event.id) %>
     <% else %>

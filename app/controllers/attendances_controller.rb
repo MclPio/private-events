@@ -38,7 +38,11 @@ class AttendancesController < ApplicationController
   def user_invited!
     @event = Event.find(event_params)
 
-    unless current_user.invited_events.include?(@event)
+    if user_signed_in?
+      unless current_user.invited_events.include?(@event) || current_user == @event.creator
+        redirect_to root_path, alert: 'You are not invited to this event'
+      end
+    else
       redirect_to root_path, alert: 'You are not invited to this event'
     end
   end

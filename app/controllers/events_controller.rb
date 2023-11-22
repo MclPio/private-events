@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
+  before_action :user_invited!, only: [:show]
 
   def index
     @events = Event.all
@@ -58,6 +59,18 @@ class EventsController < ApplicationController
 
     unless @event.creator == current_user
       redirect_to root_path, alert: 'You are not authorized to perform this action'
+    end
+  end
+
+  def user_invited!
+    @event = Event.find(params[:id])
+
+    if user_signed_in?
+      unless current_user.invited_events.include?(@event) || current_user == @event.creator
+        redirect_to root_path, alert: 'You are not invited to this event'
+      end
+    else
+      redirect_to root_path, alert: 'You are not invited to this event'
     end
   end
 end
