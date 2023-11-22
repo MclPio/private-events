@@ -8,7 +8,8 @@
   <li>created by: <%= @event.creator.username %></li>
 </ul>
 
-<%= render "invitations/new", locals: { invitation: @invitation } %>
+<%= render "invitations/new" %>
+<%= render "invitations/index" %>
 
 <% if user_signed_in? %>
   <% if current_user.attended_events.include?(@event) %>

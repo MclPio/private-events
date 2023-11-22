@@ -1,0 +1,6 @@
+<% if current_user == @event.creator %>
+<h3>Invited Users</h3>
+  <% @event.invitations.each do |invite| %>
+    <%= User.find(invite.user_id).username %>
+  <% end %>
+<% end %>
