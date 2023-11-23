@@ -1,21 +1,20 @@
-<h1>New Event</h1>
 <%= render "events/errors" %>
+<h5>New Event</h5>
+<%= form_with(model: @event) do |form| %>
+  <%= form.label :title, class: 'form-label'%>
+  <%= form.text_field :title, class: 'form-control', required: :true, maxlength: 60 %>
 
-<%= form_with model: @event do |form| %>
-  <%= form.label :title%>
-  <%= form.text_field :title %>
+  <%= form.label :location, class: 'form-label'%>
+  <%= form.text_field :location, class: 'form-control', required: :true, maxlength: 60%>
 
-  <%= form.label :location%>
-  <%= form.text_field :location %>
+  <%= form.label :description, class: 'form-label'%>
+  <%= form.text_area :description, class: 'form-control', required: :true, maxlength: 1000%>
 
-  <%= form.label :description%>
-  <%= form.text_area :description %>
+  <%= form.label :start_date, class: 'form-label'%>
+  <%= form.datetime_field :date_start, class: 'form-control', required: :true %>
 
-  <%= form.label :start_date%>
-  <%= form.datetime_field :date_start %>
+  <%= form.label :end_date, class: 'form-label'%>
+  <%= form.datetime_field :date_end, class: 'form-control', required: :true %>
 
-  <%= form.label :end_date%>
-  <%= form.datetime_field :date_end %>
-
-  <%= form.submit %>
+  <%= form.submit class: 'btn btn-primary' %>
 <% end %>
