@@ -1,4 +1,4 @@
-<h3>Created Events</h3>
+<h5>Created Events</h5>
 <% @user.events.each do |event| %>
   <ul class='list-group'>
     <li class='list-group-item'>
@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<h3>Past Events</h3>
+<h5>Past Events</h5>
 <% @user.attended_events.each do |event| %>
   <% if event.date_start < Time.now %>
     <ul class='list-group'>
@@ -21,7 +21,7 @@
   <% end %>
 <% end %>
 
-<h3>Future Events</h3>
+<h5>Future Events</h5>
 <% @user.attended_events.each do |event| %>
   <% if event.date_start > Time.now %>
     <ul class='list-group'>
@@ -33,7 +33,7 @@
   <% end %>
 <% end %>
 
-<h3>Invitations</h3>
+<h5>Invitations</h5>
 <% @user.invited_events.each do |event| %>
   <% unless @user.attended_events.include?(event)%>
     <ul class='list-group'>

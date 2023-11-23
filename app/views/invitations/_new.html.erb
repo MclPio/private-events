@@ -1,8 +1,10 @@
 <% if current_user == @event.creator %>
-<h3>Invite Users</h3>
+<h5>Invite Users</h5>
   <%= form_with model: Invitation do |form| %>
     <%= hidden_field(:event, :id) %>
-    <%= form.text_field(:username) %>
-    <%= form.submit :invite %>
+    <div class="d-flex align-items-center ">
+      <%= form.text_field(:username) %>
+      <%= form.submit :invite, class: 'btn btn-sm btn-primary'%>
+    </div>
   <% end %>
 <% end %>

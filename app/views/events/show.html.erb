@@ -1,4 +1,4 @@
-<h3>Event Info</h3>
+<h5>Event Info</h5>
 <ul>
   <li><%= @event.title %></li>
   <li><%= @event.location %></li>
@@ -13,11 +13,12 @@
 
 <% if user_signed_in? %>
   <% if current_user.attended_events.include?(@event) %>
-    <%= button_to 'Cancel Attendance', attendance_path, method: 'delete', model: @attendance %>
+    <%= button_to 'Cancel Attendance', attendance_path, method: 'delete', model: @attendance, class: "btn btn-sm btn-secondary" %>
   <% else %>
     <% if current_user.invited_events.include?(@event) || current_user == @event.creator%>
-      <p>You are invited!</p>
-      <%= button_to 'Attend', attendances_path(id: @event.id) %>
+      
+      <%= button_to 'Attend', attendances_path(id: @event.id), class: 'btn btn-sm btn-primary' %>
+      <h6>You are invited!</h6>
     <% else %>
       <p> You are not invited to this event </p>
     <% end %>
@@ -26,7 +27,7 @@
   <%= button_to 'Attend', attendances_path(id: @event.id) %>
 <% end %>
 
-<h2>Attendees:</h2>
+<h5>Attendees:</h5>
 <% @event.attendees.each do |attendee| %>
   <%= attendee.username %>
 <% end %>
