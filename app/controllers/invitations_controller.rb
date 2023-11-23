@@ -13,7 +13,7 @@ class InvitationsController < ApplicationController
     if @invitation.save
       redirect_to @event
     else
-      flash[:notice] = "Invitation failed... " + @invitation.errors.full_messages.join(', ')
+      flash[:alert] = "Invitation failed... " + @invitation.errors.full_messages.join(', ')
       redirect_to @event
     end
   end

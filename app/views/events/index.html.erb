@@ -1,17 +1,21 @@
 <h3>Past Events:</h3>
-<ul>
+<div class="row row-cols-3 row-cols-lg-4 gy-1">
   <% @events.past.each do |event| %>
-    <li><%= link_to event.title, event %></li>
+    <div class='col'>
+      <div class="box">
+        <%= link_to event.title, event %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <h3>Future Events:</h3>
-  <div class="row">
-    <% @events.future.each do |event| %>
-      <div class='col-4'>
-        <div class="box">
-          <%= link_to event.title, event %>
-        </div>
+<div class="row row-cols-3 row-cols-lg-4 gy-1">
+  <% @events.future.each do |event| %>
+    <div class='col'>
+      <div class="box">
+        <%= link_to event.title, event %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
