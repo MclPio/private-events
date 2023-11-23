@@ -1,11 +1,10 @@
-<h6>username: <%= @user.username %></h6>
 <h3>Created Events</h3>
 <% @user.events.each do |event| %>
-  <ul>
-    <li>
-      <%= link_to event.title, event %>
-      <%= link_to 'Edit', edit_event_path(event) %>
-      <%= link_to 'Delete', event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <ul class='list-group'>
+    <li class='list-group-item'>
+      <h6><%= link_to event.title, event %></h6>
+      <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-warning btn-sm' %>
+      <%= link_to 'Delete', event_path(event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger btn-sm' %>
     </li>
   </ul>
 <% end %>
@@ -13,10 +12,10 @@
 <h3>Past Events</h3>
 <% @user.attended_events.each do |event| %>
   <% if event.date_start < Time.now %>
-    <ul>
-      <li>
-        <%= link_to event.title, event %>
-        <%= button_to 'Cancel', attendance_path(event), method: 'delete', model: @attendance %>
+    <ul class='list-group'>
+      <li class='list-group-item'>
+        <h6><%= link_to event.title, event %></h6>
+        <%= button_to 'Cancel', attendance_path(event), method: 'delete', model: @attendance, class: 'btn btn-secondary btn-sm' %>
       </li>
     </ul>
   <% end %>
@@ -25,10 +24,10 @@
 <h3>Future Events</h3>
 <% @user.attended_events.each do |event| %>
   <% if event.date_start > Time.now %>
-    <ul>
-      <li>
-        <%= link_to event.title, event %>
-        <%= button_to 'Cancel', attendance_path(event), method: 'delete', model: @attendance %>
+    <ul class='list-group'>
+      <li class='list-group-item'>
+        <h6><%= link_to event.title, event %></h6>
+        <%= button_to 'Cancel', attendance_path(event), method: 'delete', model: @attendance, class: 'btn btn-secondary btn-sm' %>
       </li>
     </ul>
   <% end %>
@@ -37,9 +36,9 @@
 <h3>Invitations</h3>
 <% @user.invited_events.each do |event| %>
   <% unless @user.attended_events.include?(event)%>
-    <ul>
-      <li>
-        <%= link_to event.title, event %>
+    <ul class='list-group'>
+      <li class='list-group-item'>
+        <h6><%= link_to event.title, event %></h6>
       </li>
     </ul>
   <% end %>

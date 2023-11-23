@@ -1,9 +1,10 @@
 <% if @event.errors.any? %>
     <div class="alert alert-danger">
       <h6><%= pluralize(@event.errors.count, 'error') %> prohibited this event from being created:</h6>
+    </div>
       <ol>
         <% @event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class='text-danger'><%= error.full_message %></li>
         <% end %>
       </ol>
     </div>
