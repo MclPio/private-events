@@ -6,8 +6,12 @@
 </ul>
 
 <h3>Future Events:</h3>
-<ul>
-  <% @events.future.each do |event| %>
-    <li><%= link_to event.title, event %></li>
-  <% end %>
-</ul>
+  <div class="row">
+    <% @events.future.each do |event| %>
+      <div class='col-4'>
+        <div class="box">
+          <%= link_to event.title, event %>
+        </div>
+      </div>
+    <% end %>
+  </div>

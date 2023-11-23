@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :attendees, through: :attendances, source: :user
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 30 }
   validates :location, presence: true
   validates :description, presence: true
   validates :date_start, presence: true
