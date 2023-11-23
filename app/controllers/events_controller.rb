@@ -74,7 +74,7 @@ class EventsController < ApplicationController
         redirect_to root_path, alert: 'You are not invited to this event'
       end
     else
-      redirect_to root_path, alert: 'You are not invited to this event'
+      redirect_to root_path, alert: 'You are not signed in'
     end
   end
 end

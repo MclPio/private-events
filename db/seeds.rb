@@ -52,7 +52,23 @@ def attendance_gen
   end
 end
 
+def create_event_invite_all_users
+  date_start = Time.new(2024, 5, 20, 13, 0, 0)
+  date_end = Time.new(2024, 5, 20, 14, 0, 0)
+
+  first_user = User.first
+  event = first_user.events.create(date_start: date_start,
+                                  date_end: date_end,
+                                  location: "Toronto, ON",
+                                  description: "This is description number",
+                                  title: "ALL INVITED EVENT!")
+  User.all.each do |user|
+    event.invitations.create(user: user)
+  end
+end
+
 user_gen
 event_gen_2023
 event_gen_2024
 attendance_gen
+create_event_invite_all_users
