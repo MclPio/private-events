@@ -1,7 +1,8 @@
 # Project: Private Events
 
-This project is meant to deep dive into ActiveRecord association. Building a simplified version of sites like Eventbrite.
-[link to lesson](https://www.theodinproject.com/lessons/ruby-on-rails-private-events)
+This project is meant to deep dive into ActiveRecord association. Building a simplified version of sites like Eventbrite
+- [Link to lesson](https://www.theodinproject.com/lessons/ruby-on-rails-private-events)
+- [Live preview](https://top-private-events.fly.dev/)
 
 ## Table of Contents
 
