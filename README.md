@@ -21,6 +21,7 @@ This project is meant to deep dive into ActiveRecord association. Building a sim
 
 <details>
   <summary>Click me</summary>
+
 - clone repository:
 ```
 git clone https://github.com/MclPio/private-events.git
@@ -57,6 +58,7 @@ localhost:3000
 
 <details>
   <summary>Click me</summary>
+
 - After running
 ```
 rails db:seed
