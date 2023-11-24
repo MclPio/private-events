@@ -62,7 +62,6 @@ You can log in to seeded user accounts.
 - You can create an account by clicking sign-up, no need to use personal info
 ![Sign up](images/sign_up_page.png) 
 - The navbar should populate with options, Create Event, Profile, Sign out
-![Home page](images/home_page.png)
 To create an event:
 1. Click create event at the top of navbar
 ![Creating an event](images/create_event_page.png)
