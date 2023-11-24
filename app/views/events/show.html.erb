@@ -3,10 +3,10 @@
     <h5 class='card-title'>Event Info</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary"><%= @event.title %></h6>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= image_tag('location_on_FILL0_wght400_GRAD0_opsz24')%> <%= @event.location %></li>
-      <li class="list-group-item"><%= image_tag('schedule_FILL0_wght400_GRAD0_opsz24')%> <%= @event.date_start %>, <%= @event.date_end %></li>
-      <li class="list-group-item"><%= image_tag('account_circle_FILL0_wght400_GRAD0_opsz24')%> <%= @event.creator.username %></li>
-      <div class="list-group-item"><%= image_tag('description_FILL0_wght400_GRAD0_opsz24')%> <div><%= @event.description %></div></div>
+      <li class="list-group-item"><%= @event.location %></li>
+      <li class="list-group-item"><%= @event.date_start %>, <%= @event.date_end %></li>
+      <li class="list-group-item"><%= @event.creator.username %></li>
+      <div class="list-group-item"><div><%= @event.description %></div></div>
     </ul>
     
   </div>
